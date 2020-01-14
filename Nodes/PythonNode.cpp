@@ -10,6 +10,8 @@ python_init()
     //  add internal wrapper to available modules
     PyImport_AppendInittab("sph", PyInit_PyZmsg);
     Py_Initialize();
+    // this is only needed for Python<3.7
+    if ( PyEval_ThreadsInitialized() == 0 ) PyEval_InitThreads();
 
     //  add some paths for importing python files
     PyRun_SimpleString(

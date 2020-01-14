@@ -27,6 +27,17 @@ public:
 
     std::string filename = "tester";
     PyObject *pClassInstance;
+
+    const char *py_template = "#!/usr/bin/env python3\n"
+            "import sph\n"
+            "from pythonosc import osc_message_builder\n"
+            "\n"
+            "class <FILENAME>(object):\n"
+            "\n"
+            "    def handleMsg(self, msg, type, name, uuid):\n"
+            "        #  Handle the received msg"
+            "        return msg\n"
+            "\n";
 };
 
 #endif // PYTHONNODE_H
